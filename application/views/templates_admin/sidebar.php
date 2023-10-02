@@ -63,8 +63,8 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?= base_url('admin/data_peminjaman'); ?>">Peminjaman</a>
-                        <a class="collapse-item" href="<?= base_url('admin/data_pengembalian'); ?>">Pengembalian</a>
+                        <a class="collapse-item" href="<?= base_url('peminjaman'); ?>">Peminjaman</a>
+                        <a class="collapse-item" href="<?= base_url('pengembalian'); ?>">Pengembalian</a>
                     </div>
                 </div>
             </li>
@@ -81,7 +81,7 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="utilities-other.html">Entri Pengembalian</a>
+                        <a class="collapse-item" href="<?= base_url('laporan'); ?>">Laporan</a>
                     </div>
                 </div>
             </li>

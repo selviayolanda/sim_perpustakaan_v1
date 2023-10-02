@@ -1,6 +1,6 @@
 <div class="container-fluid">
 	<button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#tambah_kategori"><i
-			class="fas fa-fw fa-plus"></i> Tambah kategori</button>
+			class="fas fa-fw fa-plus"></i> Tambah Anggota</button>
 
 	<table class="table table-hovered mt-3">
 		<tr>

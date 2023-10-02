@@ -4,7 +4,7 @@ class M_anggota extends CI_Model{
     /**
      * get all data
      */
-    public function det_data_all(){
+    public function get_data_all(){
         $sql = "SELECT a.* FROM mst_anggota a";
         return $this->db->query($sql)->result_array();
     }

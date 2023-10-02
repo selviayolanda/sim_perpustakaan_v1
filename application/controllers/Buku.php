@@ -46,17 +46,37 @@ class Buku extends CI_Controller {
         redirect('buku');
     }
     /**
+     * function view edit
+     */
+    public function edit_view($id){
+        $data['buku'] = $this->M_buku->get_data_whereId($id);
+        $data['kategori'] = $this->M_kategori->get_data_all();
+        $this->load->view('templates_admin/header');
+		$this->load->view('templates_admin/sidebar');
+        $this->load->view('page/buku/edit_buku', $data);
+        $this->load->view('templates_admin/footer');
+    }
+    /**
      * function edit
      */
-    public function edit_kategori($id){
+    public function edit_buku($id){
         $data = $this->input->post();
         $dataArray = array(
+            'buku_nm' => @$data['buku_nm'],
             'kategori_id' => @$data['kategori_id'],
-            'kategori_nm' => @$data['kategori_nm'],
+            'penulis' => @$data['penulis'],
+            'penerbit' => @$data['penerbit'],
             'updated_at' => date('Y-m-d H:i:s'),
             'updated_by' => $this->session->userdata('username'),
         );
-        $this->M_kategori->change_kategori($id, $dataArray);
+        $this->M_buku->change_buku($id, $dataArray);
+
+        $this->load->view('templates_admin/header');
+		$this->load->view('templates_admin/sidebar');
+		$this->load->view('page/buku/edit_buku', $data);
+		$this->load->view('templates_admin/footer');
+
+        redirect('buku');
         // 
     }
     /**
