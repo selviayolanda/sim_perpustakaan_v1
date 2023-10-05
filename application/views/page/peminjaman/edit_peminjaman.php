@@ -29,26 +29,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<?php $no = 1; ?>
-					<?php foreach ($detail_pinjam as $row): ?>
-						<tr>
-							<td><?= $no++ ?></td>
-							<td><?= $row['anggota_id'] ?></td>
-							<td><?= $row['buku_id'] ?></td>
-							<td><?= $row['tgl_pinjam'] ?></td>
-							<td><?= $row['tgl_kembali'] ?></td>
-							<td>
-								<a href="<?= base_url('peminjaman/edit_view/' . $row['peminjaman_id']); ?>"
-								   class="btn btn-sm btn-success">
-									<i class="fas fa-edit"></i>
-								</a>
-								<a href="<?= base_url('peminjaman/hapus_peminjaman/' . $row['peminjaman_id']); ?>"
-								   class="btn btn-sm btn-danger">
-									<i class="fas fa-trash-alt"></i>
-								</a>
-							</td>
-						</tr>
-					<?php endforeach; ?>
+					
 				</tbody>
 			</table>
 		</div>
@@ -57,7 +38,7 @@
 				<div class="col-lg-4">
 					<div class="form-group">
 						<label for="">Invoice Peminjaman</label>
-						<input type="text" name="" id=""  value="<?= $peminjaman['peminjaman_id'] ?>" readonly class="form-control">
+						<input type="text" name="invoice_peminjaman" id="invoice_peminjaman"  value="<?= $peminjaman['peminjaman_id'] ?>" readonly class="form-control">
 					</div>
 				</div>
 			</div>
@@ -103,13 +84,33 @@
 	</div>
 </div>
 <script>
-	$('#simpan_detail').on('click', function(){
-		var peminjaman_id = $('#peminjaman_id').val();
-		var anggota_id = $('#anggota_id').val();
-		var buku_id = $('#buku_id').val();
-		var tgl_pinjam = $('#tgl_pinjam').val();
-		var tgl_kembali = $('#tgl_kembali').val();
-		var tgl_kembalikan = $('#tgl_kembalikan').val();
+	$(document).ready(function(){
+
+		var kode_otomatis = $('#invoice_peminjaman').val();
+		dataKeranjangAdd(kode_otomatis);
+		$('#simpan_detail').on('click', function(){
+			var peminjaman_id = $('#peminjaman_id').val();
+			var anggota_id = $('#anggota_id').val();
+			var buku_id = $('#buku_id').val();
+			var tgl_pinjam = $('#tgl_pinjam').val();
+			var tgl_kembali = $('#tgl_kembali').val();
+			var tgl_kembalikan = $('#tgl_kembalikan').val();
+			$.ajax({
+				url: "",
+				type : "POST",
+				data:{
+					'peminjaman_id': peminjaman_id,
+					'anggota_id' : anggota_id,
+					'tgl_pinjam' : tgl_pinjam,
+					'tgl_kembali' : tgl_kembali,
+					'tgl_kembalikan' : tgl_kembalikan
+				},
+				success: function(data){
+					alert('Success, data berhasil disimpan');
+					window.reload();
+				}
+			});
+		});
 	});
 </script>
 
