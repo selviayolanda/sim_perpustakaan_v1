@@ -66,5 +66,10 @@ class Model_dat_peminjaman extends CI_Model
 		$sql = "SELECT a.* FROM dat_peminjaman a ";
 		return $this->db->query($sql)->result_array();
 	}
+
+	public function getDataAll2(){
+		$sql = "SELECT a.* FROM dat_detail_peminjaman a ";
+		return $this->db->query($sql)->result_array();
+	}
 	
 }

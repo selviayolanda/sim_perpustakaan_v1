@@ -19,6 +19,9 @@
 			<td><?= $row['created_at'] ?></td>
 			<td><?= $row['updated_at'] ?></td>
 			<td>
+				<a href="<?= base_url('kategori/edit_view/'.$row['kategori_id']); ?>" class="btn btn-sm btn-success">
+					<i class="fas fa-edit"></i>
+				</a>
 				<a href="<?= base_url('anggota/hapus_kategori/'.$row['kategori_id']); ?>" class="btn btn-sm btn-danger">
 					<i class="fas fa-trash-alt"></i>
 				</a>
@@ -36,7 +39,7 @@
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Form Input Produk</h5>
+				<h5 class="modal-title" id="exampleModalLabel">Form Input Kategori</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -45,12 +48,8 @@
 				<form action="<?= base_url('kategori/simpan_kategori')?>" method="post"
 					enctype="multipart/form-data">
 					<div class="form-group">
-						<label>Kode kategori</label>
-						<input type="text" name="kode_buku" id="kode_buku" class="form-control">
-					</div>
-					<div class="form-group">
 						<label>Nama kategori</label>
-						<input type="text" name="nama_kategori" id="nama_kategori" class="form-control">
+						<input type="text" name="kategori_nm" id="kategori_nm" class="form-control">
 					</div>
 			</div>
 			<div class="modal-footer">

@@ -25,6 +25,9 @@
 			<td><?= $row['created_at'] ?></td>
 			<td><?= $row['updated_at'] ?></td>
 			<td>
+				<a href="<?= base_url('anggota/edit_view/'.$row['anggota_id']); ?>" class="btn btn-sm btn-success">
+					<i class="fas fa-edit"></i>
+				</a>
 				<a href="<?= base_url('anggota/hapus_anggota/'.$row['anggota_id']); ?>" class="btn btn-sm btn-danger">
 					<i class="fas fa-trash-alt"></i>
 				</a>

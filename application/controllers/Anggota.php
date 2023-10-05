@@ -39,6 +39,39 @@ class Anggota extends CI_Controller{
         $this->M_anggota->save_anggota($dataArray);
         redirect('anggota');
     }
+    
+    public function edit_view($id){
+        $data['anggota'] = $this->M_anggota->get_data_whereId($id);
+        $this->load->view('templates_admin/header');
+		$this->load->view('templates_admin/sidebar');
+        $this->load->view('page/anggota/edit_anggota', $data);
+        $this->load->view('templates_admin/footer');
+    }
+    /**
+     * function edit
+     */
+    public function edit_anggota($id){
+        $data = $this->input->post();
+        $dataArray = array(
+            'anggota_nm' => @$data['anggota_nm'],
+            'jk' => @$data['jenis_kelamin'],
+            'telp_no' => @$data['telp_no'],
+            'alamat' => @$data['alamat'],
+            'created_at' => date('Y-m-d H:i:s'),
+            'created_by' => $this->session->userdata('username'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            'updated_by' => $this->session->userdata('username'),
+        );
+        $this->M_anggota->change_anggota($id, $dataArray);
+
+        $this->load->view('templates_admin/header');
+		$this->load->view('templates_admin/sidebar');
+		$this->load->view('page/anggota/edit_anggota', $data);
+		$this->load->view('templates_admin/footer');
+
+        redirect('anggota');
+        // 
+    }
     /**
      * delete anggota
      */
