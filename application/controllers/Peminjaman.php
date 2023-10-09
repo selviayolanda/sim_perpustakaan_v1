@@ -38,6 +38,7 @@ class peminjaman extends CI_Controller {
 		$this->load->view('page/peminjaman/index', $data);
 		$this->load->view('templates_admin/footer');
 	}
+
     /**
      * function create
      */
@@ -55,6 +56,7 @@ class peminjaman extends CI_Controller {
         $this->M_dat_peminjaman->save_peminjaman($dataArray);
         redirect('peminjaman');
     }
+
     /**
      * function view edit
      */
@@ -69,6 +71,26 @@ class peminjaman extends CI_Controller {
         $this->load->view('page/peminjaman/edit_peminjaman', $data);
         $this->load->view('templates_admin/footer');
     }
+
+    /**
+     * function simpan keranjang
+     */
+    public function simpan_keranjang(){
+        $data = $this->input->post();
+        $param = array(
+            'peminjaman_id' => $data['peminjaman_id'],
+            'anggota_id' => $data['anggota_id'],
+            'buku_id' => $data['buku_id'],
+            'tgl_pinjam' => $data['tgl_pinjam'],
+            'tgl_kembali' => $data['tgl_kembali'],
+            'created_at' => date('Y-m-d H:i:s'),
+            'created_by' => $this->session->userdata('username'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            'updated_by' => $this->session->userdata('username'),
+        );
+        $this->M_dat_peminjaman->save_data_detail_part($param);
+    }
+
     /**
      * function edit
      */
@@ -90,6 +112,7 @@ class peminjaman extends CI_Controller {
         redirect('peminjaman');
         // 
     }
+
     /**
      * delete
      */
@@ -97,5 +120,26 @@ class peminjaman extends CI_Controller {
         $this->M_dat_peminjaman->delete_peminjaman($id);
         redirect('peminjaman');
     }
+
+    /**
+     * kembali kan buku nya
+     */
+    public function get_index_kembali()
+    {
+        $data['pengembalian'] = array();
+        $this->load->view();
+        $this->load->view('page/pengembalian/index');
+        $this->load->view();
+    }
     
+    /**
+     * laporan view
+     */
+    public function laporan_view(){
+        $data['laporan_peminjaman_pengembalian'] = array();
+        $this->load->view('templates_admin/header');
+		$this->load->view('templates_admin/sidebar');
+        $this->load->view('page/laporan/index', $data);
+		$this->load->view('templates_admin/footer');
+    }
 }

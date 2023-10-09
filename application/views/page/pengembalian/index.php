@@ -4,8 +4,11 @@
 	<div class="row pt-3">
 		<div class="col-lg-4">
             <div class="form-group">
-                <select name="anggota" id="anggota" class="form-control">
-					<option value="">-- Input anggota --</option>
+				<select name="anggota_id" id="anggota_id" class="form-control">
+					<option value="">-- pilih --</option>
+					<?php foreach($anggota as $item): ?>
+					<option value="<?= $item['anggota_id'] ?>"><?= $item['anggota_nm'] ?></option>
+					<?php endforeach; ?>                            
 				</select>
             </div>
 		</div>

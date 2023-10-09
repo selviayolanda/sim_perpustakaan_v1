@@ -19,7 +19,10 @@ class M_dat_peminjaman extends CI_Model{
 
     // get data by id detail pinjam
     public function get_byid_detailpinjam($id){
-        $sql = "SELECT a.* FROM dat_detail_peminjaman a WHERE a.detailpinjam_id = '$id'";
+        $sql = "SELECT a.*, b.anggota_nm, c.buku_nm FROM dat_detail_peminjaman a
+            LEFT JOIN mst_anggota b ON a.anggota_id = b.anggota_id 
+            LEFT JOIN mst_buku c ON a.buku_id = c.buku_id
+            WHERE a.peminjaman_id = '$id'";
         return $this->db->query($sql)->result_array();
     
     }
@@ -48,4 +51,14 @@ class M_dat_peminjaman extends CI_Model{
         return $this->db->from('dat_peminjaman')->count_all_results();
     }
     
+    public function save_data_detail_part($param){
+        $this->db->insert('dat_detail_peminjaman', $param);
+    }
+
+    /**
+     * get data where pengembalian status
+     */
+    public function get_by_pengembalian(){
+        // 
+    }
 }
