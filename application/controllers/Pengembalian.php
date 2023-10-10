@@ -40,6 +40,7 @@ class pengembalian extends CI_Controller{
             $this->load->view('templates_admin/footer');
         }else{
             $data['peminjaman'] = $this->M_dat_peminjaman->get_data_all();
+            $data['button_kembali'] = "";
             // $data['anggota'] = $this->M_anggota->get_data_all();
             $this->load->view('templates_admin/header');
             $this->load->view('templates_admin/sidebar');

@@ -4,12 +4,7 @@
 	<div class="row pt-3">
 		<div class="col-lg-4">
             <div class="form-group">
-				<select name="anggota_id" id="anggota_id" class="form-control">
-					<option value="">-- pilih --</option>
-					<?php foreach($anggota as $item): ?>
-					<option value="<?= $item['anggota_id'] ?>"><?= $item['anggota_nm'] ?></option>
-					<?php endforeach; ?>                            
-				</select>
+				<label for="">Kode Peminjaman : <?= $peminjaman['peminjaman_id'] ?> - <?= $peminjaman['anggota_nm'] ?></label>
             </div>
 		</div>
 	</div>
@@ -23,15 +18,19 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <tr>
-                            <th>No</th>
-                            <th>Nama Buku</th>
-                            <th>Tanggal Pinjam</th>
-                            <th>Tanggal Keluar</th>
-                            <th>Denda</th>
-                            <th>Status</th>
-                            <th>aksi</th>
-                        </tr>
+							<thead>
+								<tr>
+									<th>No</th>
+									<th>Nama Buku</th>
+									<th>Tanggal Pinjam</th>
+									<th>Tanggal Keluar</th>
+									<th>Denda</th>
+									<th>Status</th>
+									<th>aksi</th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
                         </table>
                     </div>
                 </div>
