@@ -34,6 +34,7 @@ class pengembalian extends CI_Controller{
         $id = $this->input->post('peminjaman_id');
         if($id != ''){
             $data['peminjaman'] = $this->M_dat_peminjaman->get_byid_anggotapeminjaman($id);
+            $data['buku_pinjam'] = $this->M_dat_peminjaman->get_byid_detailpinjam($id);
             $this->load->view('templates_admin/header');
             $this->load->view('templates_admin/sidebar');
             $this->load->view('page/pengembalian/view_pengembalian', $data);

@@ -30,6 +30,18 @@
 								</tr>
 							</thead>
 							<tbody>
+								<?php $no=1; ?>
+								<?php foreach($buku_pinjam as $item): ?>
+								<tr>
+									<td><?= $no++ ?></td>
+									<td><?= $item['buku_nm'] ?></td>
+									<td><?= $item['tgl_pinjam'] ?></td>
+									<td><?= $item['tgl_keluar'] ?></td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+								</tr>
+								<?php endforeach; ?>
 							</tbody>
                         </table>
                     </div>
