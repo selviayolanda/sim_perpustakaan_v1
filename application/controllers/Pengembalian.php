@@ -30,7 +30,8 @@ class pengembalian extends CI_Controller{
     /**
      * function cari data
      */
-    public function search_peminjam($id){
+    public function search_peminjam(){
+        $id = $this->input->post('peminjaman_id');
         if($id != ''){
             $data['peminjam'] = $this->M_dat_peminjaman->get_byid_anggotapeminjaman($id);
             $this->load->view('templates_admin/header');

@@ -1,7 +1,7 @@
 <div class="container-fluid">
 	<h2>Pengembalian</h2>
 	<hr>
-	<form action="<?= base_url('peminjaman/cari_peminjaman')?>" method="post">
+	<form action="<?= base_url('pengembalian/search_peminjam')?>" method="post">
 	<div class="row pt-3">
 			<div class="col-lg-4">
 				<div class="form-group">
