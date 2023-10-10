@@ -62,10 +62,5 @@ class M_dat_peminjaman extends CI_Model{
     }
     
 
-    /**
-     * get data where pengembalian status
-     */
-    public function get_by_pengembalian(){
-        // 
-    }
+
 }

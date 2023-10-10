@@ -8,7 +8,7 @@
 					<select name="peminjaman_id" id="peminjaman_id" class="form-control">
 						<option value="">-- pilih --</option>
 						<?php foreach($peminjaman as $item): ?>
-						<option value="<?= $item['peminjaman_id'] ?>"><?= $item['peminjaman_id'] ?></option>
+						<option value="<?= $item['peminjaman_id'] ?>"><?= $item['peminjaman_id'] ?> - <?= $item['anggota_nm'] ?></option>
 						<?php endforeach; ?>                            
 					</select>
 				</div>

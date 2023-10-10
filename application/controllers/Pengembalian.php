@@ -20,7 +20,7 @@ class pengembalian extends CI_Controller{
 	public function index()
 	{   
 		$data['pengembalian'] = $this->M_dat_peminjaman->get_data_all();
-		$data['anggota'] = $this->M_anggota->get_data_all();
+		// $data['anggota'] = $this->M_anggota->get_data_all();
 		$this->load->view('templates_admin/header');
 		$this->load->view('templates_admin/sidebar');
 		$this->load->view('page/pengembalian/index', $data);
