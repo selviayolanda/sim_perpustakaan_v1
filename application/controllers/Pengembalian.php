@@ -33,14 +33,14 @@ class pengembalian extends CI_Controller{
     public function search_peminjam(){
         $id = $this->input->post('peminjaman_id');
         if($id != ''){
-            $data['peminjam'] = $this->M_dat_peminjaman->get_byid_anggotapeminjaman($id);
+            $data['peminjaman'] = $this->M_dat_peminjaman->get_byid_anggotapeminjaman($id);
             $this->load->view('templates_admin/header');
             $this->load->view('templates_admin/sidebar');
             $this->load->view('page/pengembalian/view_pengembalian', $data);
             $this->load->view('templates_admin/footer');
         }else{
             $data['peminjaman'] = $this->M_dat_peminjaman->get_data_all();
-            $data['button_kembali'] = "";
+            // $data['button_kembali'] = "";
             // $data['anggota'] = $this->M_anggota->get_data_all();
             $this->load->view('templates_admin/header');
             $this->load->view('templates_admin/sidebar');
