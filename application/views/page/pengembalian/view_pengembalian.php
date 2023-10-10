@@ -4,7 +4,7 @@
 	<div class="row pt-3">
 		<div class="col-lg-4">
             <div class="form-group">
-				<label for="">Kode Peminjaman : <?= $peminjaman['peminjaman_id'] ?> - <?= $peminjaman['anggota_nm'] ?></label>
+				<label for="">Kode Peminjaman : <?= $peminjaman['peminjaman_id'] ?> - <?= $peminjaman['anggota_id'] ?></label>
             </div>
 		</div>
 	</div>

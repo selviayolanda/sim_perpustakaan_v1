@@ -57,7 +57,7 @@ class M_dat_peminjaman extends CI_Model{
 
     // model buat cari data
     public function get_byid_anggotapeminjaman($id){
-        $sql = "SELECT a.*, b,anggota_nm FROM dat_peminjaman a 
+        $sql = "SELECT a.*, b.anggota_nm FROM dat_peminjaman a 
             LEFT JOIN mst_anggota b ON a.anggota_id = b.anggota_id
             WHERE a.peminjaman_id = '$id'";
         return $this->db->query($sql)->row_array();
