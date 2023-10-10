@@ -121,6 +121,17 @@ class peminjaman extends CI_Controller {
         redirect('peminjaman');
     }
 
+    // cari buku
+    public function cari_peminjaman(){
+        $data = $this->input->post();
+        $data['peminjaman'] = $this->M_dat_peminjaman->get_data_whereId($id);
+        $data['peminjaman_kode'] = $this->kode_peminjaman();
+        $hasil_cari = $this->M_dat_peminjaman->get_byid_anggotapeminjaman($data);
+	    return redirect('cari_peminjaman',$hasil_cari);
+
+    }
+    
+
     /**
      * kembali kan buku nya
      */

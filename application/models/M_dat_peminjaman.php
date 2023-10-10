@@ -55,6 +55,13 @@ class M_dat_peminjaman extends CI_Model{
         $this->db->insert('dat_detail_peminjaman', $param);
     }
 
+    // model buat cari data
+    public function get_byid_anggotapeminjaman($id){
+        $sql = "SELECT a.* FROM dat_peminjaman a WHERE a.peminjaman_id = '$id'";
+        return $this->db->query($sql)->row_array();
+    }
+    
+
     /**
      * get data where pengembalian status
      */
